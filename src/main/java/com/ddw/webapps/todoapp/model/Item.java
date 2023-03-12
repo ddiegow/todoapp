@@ -1,11 +1,32 @@
 package com.ddw.webapps.todoapp.model;
 
+import java.util.UUID;
+
 public class Item {
+    private String ID;
     private String task;
     private String startDate;
     private String endDate;
     private boolean completed;
 
+    protected Item() {
+
+    }
+
+    public Item(String ID, String task, String startDate, String endDate, boolean completed) {
+        setID(ID);
+        setTask(task);
+        setStartDate(startDate);
+        setEndDate(endDate);
+        setCompleted(completed);
+    }
+
+    public String getID() {
+        return ID;
+    }
+    public void setID(String ID) {
+        this.ID = ID;
+    }
     public String getTask() {
         return task;
     }
@@ -37,4 +58,6 @@ public class Item {
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
+
 }
