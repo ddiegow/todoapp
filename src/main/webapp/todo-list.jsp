@@ -11,6 +11,9 @@
     <title>TODO</title>
 </head>
 <body>
+    <h1>Welcome ${user}</h1>
+    <h2>TODO List</h2>
+    <a href="addtodo">Add new TODO item</a>
 
 </body>
 </html>

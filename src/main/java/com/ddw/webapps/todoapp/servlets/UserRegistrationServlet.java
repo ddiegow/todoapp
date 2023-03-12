@@ -1,4 +1,4 @@
-package com.ddw.webapps.todoapp.controllers;
+package com.ddw.webapps.todoapp.servlets;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -10,7 +10,7 @@ import com.ddw.webapps.todoapp.dao.UserDAO;
 import com.ddw.webapps.todoapp.model.User;
 
 @WebServlet(name = "UserRegistrationServlet", value = "/register")
-public class UserRegistrationController extends HttpServlet {
+public class UserRegistrationServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -34,7 +34,7 @@ public class UserRegistrationController extends HttpServlet {
                 ds.forward(request, response);
             }
             if (result == 1) {
-                RequestDispatcher ds = request.getRequestDispatcher("todo.jsp");
+                RequestDispatcher ds = request.getRequestDispatcher("/list");
                 ds.forward(request, response);
             }
         }

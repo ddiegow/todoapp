@@ -1,4 +1,4 @@
-package com.ddw.webapps.todoapp.controllers;
+package com.ddw.webapps.todoapp.servlets;
 
 import com.ddw.webapps.todoapp.dao.UserDAO;
 
@@ -12,7 +12,7 @@ import java.io.IOException;
 public class UserLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("login.jsp");
     }
 
     @Override
@@ -20,11 +20,12 @@ public class UserLoginServlet extends HttpServlet {
         try {
             if (!UserDAO.findUser(request.getParameter("user"), request.getParameter("password"))) {
                 request.setAttribute("LOGIN_NOTIFICATION", "User not found");
-                RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
                 rd.forward(request, response);
             }
             else {
-                RequestDispatcher rd =request.getRequestDispatcher("todo.jsp");
+                request.setAttribute("user", request.getParameter("user"));
+                RequestDispatcher rd =request.getRequestDispatcher("list");
                 rd.forward(request, response);
             }
         } catch (Exception e) {
